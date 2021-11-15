@@ -72,5 +72,15 @@ namespace TestProject1
 
             result.Should().Be("World!");
         }
+        
+        [Fact]
+        public void GetBridge_UsingAutoMockSpecimenFactoryAndOnlyCreatingSut_MocksConstructorAndAllowsSetup()
+        {
+            var sut = _fixture.Create<DependentBridge>();
+            
+            var result = sut.GetBridgeName();
+
+            result.Should().BeNull();
+        }
     }
 }
