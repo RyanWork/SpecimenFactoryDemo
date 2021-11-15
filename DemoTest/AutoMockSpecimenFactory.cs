@@ -46,6 +46,6 @@ namespace TestProject1
             return requestObject;
         }
         
-        private bool IsGenericMock(Type requestType) => requestType.IsGenericType && requestType.GetGenericTypeDefinition() == typeof(Mock<>);
+        private static bool IsGenericMock(Type requestType) => requestType.IsGenericType && requestType.GetGenericTypeDefinition() == typeof(Mock<>);
     }
 }
