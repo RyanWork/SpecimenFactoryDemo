@@ -1,4 +1,5 @@
 using AutoFixture;
+using AutoFixture.AutoMoq;
 using FluentAssertions;
 using Moq;
 using TestProject1.Bridges;
@@ -12,7 +13,7 @@ namespace TestProject1
 
         public DependentBridgeTest()
         {
-            _fixture = new Fixture();
+            _fixture = new Fixture().Customize(new AutoMoqCustomization());
             _fixture.Customizations.Add(new AutoMockSpecimenFactory());
         }
         
