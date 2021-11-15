@@ -26,7 +26,7 @@ namespace TestProject1
 
             var requiredConstructorParameters = constructorInfo.GetParameters();
             var constructorParameters = new object?[requiredConstructorParameters.Length];
-            for (var i = 0; i < requiredConstructorParameters.Length; i ++)
+            for (var i = 0; i < requiredConstructorParameters.Length; i++)
             {
                 var parameterType = requiredConstructorParameters[i].ParameterType;
                 if (!_mockTypeLookup.TryGetValue(parameterType, out var parameterMockValue))

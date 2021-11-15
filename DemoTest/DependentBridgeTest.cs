@@ -13,7 +13,7 @@ namespace TestProject1
 
         public DependentBridgeTest()
         {
-            _fixture = new Fixture().Customize(new AutoMoqCustomization());
+            _fixture = new Fixture();
             _fixture.Customizations.Add(new AutoMockSpecimenFactory());
         }
         
