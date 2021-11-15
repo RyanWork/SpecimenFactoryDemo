@@ -30,6 +30,8 @@ public class Baz
   }
 }
 ```
-If `Baz` is the system under test, both `AutoMoqCustomization` and `AutoMockSpecimenFactory` will throw when attempting to instantiate these sets of objects through AutoFixture. This is because AutoFixture will not know how to generate a `Mock<Bar>` object to use when creating the dependency graph.
+If `Baz` is the system under test, both `AutoMoqCustomization` and `AutoMockSpecimenFactory` will throw when attempting to instantiate these sets of objects through AutoFixture. This is because AutoFixture will not know how to generate a `Mock<Bar>` object to use when creating the dependency graph because we are trying to mock a concrete type.
 
 `AutoMockSpecimenFactory` attempts to solve this issue. All that is required is that `Foo` contains a parameterless constructor and `AutoMockSpecimenFactory` will effectively "Freeze" a Mock instance without throwing. Adding a parameterless constructor does not fix this issue in an `AutoMoqCustomization` test context.
+
+This would allow for the use of `Fixture.Create` on an object that contains concrete dependencies and also exclude manually creating these dependencies to potentially `new()` a system under test manually.
